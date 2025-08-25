@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9Im51bGwiIHN0eWxlPSJ2ZWN0b3ItZWZmZWN0OiBub24tc2NhbGluZy1zdHJva2U7IiB2ZXJzaW9uPSIxLjEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIGNsYXNzPSJzdmctY2FudmFzIj4KIDwhLS3mu6TplZwtLT4KIDxkZWZzIHN0cm9rZT0ibnVsbCIgc3R5bGU9InZlY3Rvci1lZmZlY3Q6IG5vbi1zY2FsaW5nLXN0cm9rZTsiPgogIDxsaW5lYXJHcmFkaWVudCBzdHJva2U9Im51bGwiIHN0eWxlPSJ2ZWN0b3ItZWZmZWN0OiBub24tc2NhbGluZy1zdHJva2U7IiB5Mj0iMC4zNzE0OSIgeDI9IjAuNTIyNzUiIHkxPSIwLjYxMTc0IiB4MT0iMC4yOTU4NiIgaWQ9InN2Z18zIj4KICAgPHN0b3Agc3Ryb2tlPSJudWxsIiBzdHlsZT0idmVjdG9yLWVmZmVjdDogbm9uLXNjYWxpbmctc3Ryb2tlOyIgc3RvcC1jb2xvcj0iI0E1N0Y0OSIgb2Zmc2V0PSIwIi8+CiAgIDxzdG9wIHN0cm9rZT0ibnVsbCIgc3R5bGU9InZlY3Rvci1lZmZlY3Q6IG5vbi1zY2FsaW5nLXN0cm9rZTsiIHN0b3AtY29sb3I9IiNBNTdGNDkiIG9mZnNldD0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPGxpbmVhckdyYWRpZW50IHN0cm9rZT0ibnVsbCIgc3R5bGU9InZlY3Rvci1lZmZlY3Q6IG5vbi1zY2FsaW5nLXN0cm9rZTsiIHkyPSIwLjM3ODIyIiB4Mj0iMC4xMjMwMiIgeTE9IjAuNTg1MzgiIHgxPSIwLjcyMzY3IiBpZD0ic3ZnXzIiPgogICA8c3RvcCBzdHJva2U9Im51bGwiIHN0eWxlPSJ2ZWN0b3ItZWZmZWN0OiBub24tc2NhbGluZy1zdHJva2U7IiBzdG9wLWNvbG9yPSIjQTU3RjQ5IiBvZmZzZXQ9IjAiLz4KICAgPHN0b3Agc3Ryb2tlPSJudWxsIiBzdHlsZT0idmVjdG9yLWVmZmVjdDogbm9uLXNjYWxpbmctc3Ryb2tlOyIgc3RvcC1jb2xvcj0iI0E1N0Y0OSIgb2Zmc2V0PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KIDwvZGVmcz4KIDwhLS0g6IOM5pmvIC0tPgogPCEtLeWFg+e0oC0tPgogPGcgc3Ryb2tlPSJudWxsIj4KICA8dGl0bGUgc3Ryb2tlPSJudWxsIj5MYXllciAxPC90aXRsZT4KICA8ZyBzdHJva2U9Im51bGwiIGtleT0ic2hhcGVfaHJIbVN4QTdTdCIgcmVmPSJzaGFwZV9ockhtU3hBN1N0IiBpZD0ic2hhcGVfaHJIbVN4QTdTdCI+CiAgIDxnIHN0cm9rZT0ibnVsbCIgaWQ9InN2Z182IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTQuNzA1IDE0LjgxMzEpIHNjYWxlKDEgMSkiPgogICAgPCEtLeaZrumAmuWFg+e0oC0tPgogICAgPHJlY3Qgc3Ryb2tlPSJudWxsIiBpZD0ic3ZnXzciIHk9Ii0yNi45NTcwMiIgeD0iLTEyNy4wMDAyOSIgaGVpZ2h0PSI4MjQuMjg3ODgiIHdpZHRoPSI4MjQuNTkwNTYiIGZpbGw9InJnYmEoMCwwLDAsMCkiLz4KICAgIDxnIHN0cm9rZT0ibnVsbCIgdHJhbnNmb3JtPSJtYXRyaXgoMS4zOTYyMSAwIDAgMS4zOTYyMSAtMjAuMDE4NiAtMTYuMDkzNCkiIHk9Ii00Ljk5OTk5IiB4PSItMTAzIiBpZD0ic3ZnXzIzIj4KICAgICA8c3ZnIHN0cm9rZT0ibnVsbCIgZGF0YS1wYXJlbnQ9InNoYXBlX2hySG1TeEE3U3QiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIGNsYXNzPSJzdHlsZS1yZW1vdmVkIiB4bWw6c3BhY2U9InByZXNlcnZlIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMDAgMjAwIiB2aWV3Qm94PSIwIC0wLjEwNTAwMDAwNDE3MjMyNTEzIDIwMC4wNDgwMDQxNTAzOTA2MiAxOTkuOTcyMDAwMTIyMDcwMyIgaGVpZ2h0PSI1NzAuMzczNzQiIHdpZHRoPSI1NzAuNTkwNTIiIHk9IjIuMjE5MiIgeD0iLTY2LjYyMjc0IiBpZD0ic3ZnXzEiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICAgIDxwYXRoIHN0cm9rZT0ibnVsbCIgaWQ9InN2Z184IiBzdHJva2Utd2lkdGg9IjAiIGQ9Im0xOTIuMTcyLDEzOC44ODRjLTUuNTg0LDEzLjE5MiAtMTMuOTI0LDI0LjkzNyAtMjQuMjksMzQuNTEzYy03LjY2LC02LjE3OCAtMTUuOTcyLC0xMi4wOCAtMjQuODY1LC0xNy41NjhjLTM4LjMxNCwtMjMuNjU3IC03OC41OTYsLTM0LjI4NiAtMTA5LjA5OCwtMzEuMjcxYzIyLjQ1LDQuNTExIDQ2LjkzNCwxNC4xNjUgNzAuNjY2LDI4LjgxNmMxNi42NjEsMTAuMjkgMzEuMjg5LDIyLjAxNCA0My40MDMsMzQuMzM0Yy0xMy4xNDksNy4yMDIgLTI4LjA5NCwxMS41MzcgLTQzLjk4NywxMi4xNTljLTIuMDY4LC0zLjM5NiAtNC4yMzEsLTYuNzc3IC02LjUwNywtMTAuMTQzYy0yNS4yNDQsLTM3LjI4NyAtNTcuNjI0LC02My40OTkgLTg2LjY3OSwtNzMuMjU4YzE4LjYyNiwxMy4zMjIgMzYuOTk4LDMyLjE2OCA1Mi42MzMsNTUuMjZjNS43OTgsOC41NjcgMTAuOTEyLDE3LjI2MyAxNS4zMzIsMjUuOTVjLTQ1LjAzLC05Ljc0MyAtNzguNzgsLTQ5LjgxMiAtNzguNzgsLTk3Ljc1N2MwLC05LjQ1OSAxLjMxNSwtMTguNjEyIDMuNzcxLC0yNy4yODljMTguMDQ1LC00Ljg1IDM0LjEzOSwtOS4xMDYgNDcuMjQ5LC0xMS4zMzhjMTEuODA3LC0yLjAxIDI0LjE3MiwtMi40ODEgMzUuOTY1LC0wLjA2YzIyLjY3Nyw0LjY1NiAxNy4zMzksMTguNTU1IDMuNzQxLDI5LjI4NWMtOC41NDgsNi43NTEgLTE4Ljg3NSwxMS4xNjQgLTI5LjA1MywxNC44MTFjLTE5Ljk5Myw3LjE3MSAtMzguMzUxLDEwLjEwNiAtMzIuNDI0LDEwLjY5YzQ2LjgzNSw0LjYxNCAxMDAuMzkxLDMuNDg4IDE0NS41MzgsMTcuMDE2YzUuOTAyLDEuNzY4IDExLjg2OSwzLjgyIDE3LjM4NSw1Ljg1eiIgZmlsbD0idXJsKCNzdmdfMykiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIi8+CiAgICAgIDxwYXRoIHN0cm9rZT0ibnVsbCIgaWQ9InN2Z185IiBzdHJva2Utd2lkdGg9IjAiIGQ9Im0xMDAuMDI1LC0wLjEwNWM1NS4yMzEsMCAxMDAuMDIzLDQ0Ljc5MiAxMDAuMDIzLDEwMC4wMjRjMCwyLjYxOSAtMC4xMDIsNS4yMTIgLTAuMjk5LDcuNzgxYy00MS4wNjIsLTIuNzQ2IC0xMDIuMDM0LC0wLjg0MSAtMTAyLjAzNCwtMC44NDFjNTguNDM0LC00Mi40MTggMjkuODA1LC02MS45NDcgLTguMTEyLC02OS4yOTVjLTExLjc4MiwtMi4yODIgLTIzLjc3MiwtMy40OTIgLTM1Ljc3NiwtMy4wNzNjLTE3LjA0NSwwLjU5NyAtMzAuMjQxLDMuODkyIC0zMC4xMTUsNC4wOTFsLTMuMDQyLDAuNDU4YzE4LjI4NiwtMjMuNzk3IDQ3LjAyOCwtMzkuMTQ1IDc5LjM1NSwtMzkuMTQ1eiIgZmlsbD0idXJsKCNzdmdfMikiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIi8+CiAgICAgPC9zdmc+CiAgICA8L2c+CiAgIDwvZz4KICA8L2c+CiA8L2c+Cjwvc3ZnPg==" />
+    <title>Revelation 安全防护</title>
+    <script src="https://cdn.tailwindcss.com?v=3.3.2"></script>
+    <link href="https://s4.zstatic.net/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        danger: '#DC2626',
+                        neutral: '#1F2937',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .shield-pulse {
+                animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.05); opacity: 0.9; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+            .language-selector {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                z-index: 40;
+            }
+            .ml-2 {
+                margin: 0;
+                font-size: 14px;
+            }
+            .language-button {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            .language-button:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            }
+            .language-dropdown {
+                position: absolute;
+                max-height: 500px;
+                overflow:auto;
+                top: 100%;
+                right: 0;
+                margin-top: 0.5rem;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+                width: 120px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+            .language-dropdown.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            .language-option {
+                padding: 3px 10px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                transition: background 0.2s ease;
+            }
+            .language-option:hover {
+                background: #f3f4f6;
+            }
+            .language-option:first-child {
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+            .language-option:last-child {
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+            .language-flag {
+                width: 20px;
+                height: 20px;
+                margin-right: 0.75rem;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            @media (max-width: 640px) {
+                .language-selector {
+                    top: 0.5rem;
+                    right: 0.5rem;
+                }
+                .language-button {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- 语言选择器 -->
+    <div class="language-selector">
+        <div class="language-button" id="language-toggle"><i class="fa-solid fa-language"></i></div>
+        <div class="language-dropdown" id="language-dropdown">
+            <div class="language-option" data-lang="auto"><span class="ml-2">自动选择</span></div>
+            <div class="language-option" data-lang="zh-CN"><span class="ml-2">简体中文</span></div>
+            <div class="language-option" data-lang="zh-Hant"><span class="ml-2">繁體中文</span></div>
+            <div class="language-option" data-lang="en"><span class="ml-2">English</span></div>
+            <div class="language-option" data-lang="ja"><span class="ml-2">日本語</span></div>
+            <div class="language-option" data-lang="ko"><span class="ml-2">한국어</span></div>
+            <div class="language-option" data-lang="bg"><span class="ml-2">Български</span></div>
+            <div class="language-option" data-lang="de"><span class="ml-2">Deutsch</span></div>
+            <div class="language-option" data-lang="es"><span class="ml-2">Español</span></div>
+            <div class="language-option" data-lang="fr"><span class="ml-2">Français</span></div>
+            <div class="language-option" data-lang="ga"><span class="ml-2">Gaeilge</span></div>
+            <div class="language-option" data-lang="hi"><span class="ml-2">हिन्दी</span></div>
+            <div class="language-option" data-lang="in"><span class="ml-2">Bahasa Indonesia</span></div>
+            <div class="language-option" data-lang="lt"><span class="ml-2">Lietuvių kalba</span></div>
+            <div class="language-option" data-lang="ms"><span class="ml-2">Bahasa Malaysia</span></div>
+            <div class="language-option" data-lang="nl"><span class="ml-2">Nederlands</span></div>
+            <div class="language-option" data-lang="no"><span class="ml-2">Norsk</span></div>
+            <div class="language-option" data-lang="pt"><span class="ml-2">Português</span></div>
+            <div class="language-option" data-lang="th"><span class="ml-2">ภาษาไทย</span></div>
+            <div class="language-option" data-lang="tl"><span class="ml-2">Tagalog</span></div>
+            <div class="language-option" data-lang="tr"><span class="ml-2">Türkçe</span></div>
+            <div class="language-option" data-lang="uk"><span class="ml-2">Українська</span></div>
+            <div class="language-option" data-lang="vi"><span class="ml-2">Tiếng Việt</span></div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+        <div class="container mx-auto max-w-xl w-full">
+            <!-- 主卡片 -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                <!-- 顶部盾牌区域 -->
+                <div class="bg-gradient-to-r from-danger to-danger/80 p-8 text-center relative overflow-hidden">
+                    <div class="relative">
+                        <i class="fa fa-shield-halved text-white text-6xl shield-pulse"></i>
+                        <h1 class="text-white text-2xl md:text-3xl font-bold mt-4" id="title">网站不存在</h1>
+                    </div>
+                </div>
+
+                <!-- 内容区域 -->
+                <div class="p-6 md:p-8">
+                    <!-- 拦截详情 -->
+                    <div class="space-y-4 mb-6">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <p class="text-gray-500 text-sm mb-1" id="ip-label">您的IP地址</p>
+                            <p class="text-neutral font-medium" id="user-ip">获取中...</p>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <p class="text-gray-500 text-sm mb-1" id="time-label">拦截时间</p>
+                            <p class="text-neutral font-medium" id="block-time">获取中...</p>
+                        </div>
+                    </div>
+
+                    <!-- 提示信息 -->
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100 mb-6">
+                        <p class="text-red-800 text-sm flex items-start">
+                            <i class="fa fa-info-circle mt-1 mr-2 text-red-500"></i>
+                            <span id="hint-text">如果您认为这是误判，请联系网站管理员并提供您的IP地址和拦截时间。</span>
+                        </p>
+                    </div>
+
+                    <!-- 刷新按钮 -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="window.location.reload()"
+                            class="flex-1 bg-danger hover:bg-danger/90 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center">
+                            <i class="fa fa-refresh mr-2"></i> <span id="retry-button">尝试重新加载</span>
+                        </button>
+                        <button id="help-btn"
+                            class="flex-1 border border-danger text-danger hover:bg-danger hover:text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center">
+                            <i class="fa fa-question-circle mr-2"></i> <span id="help-button">获取帮助</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <footer class="mt-8 text-center text-gray-500 text-sm">
+                <p id="footer-text">由 Revelation 提供网络安全防护</p>
+            </footer>
+        </div>
+    </main>
+    
+    <!-- 帮助模态框 -->
+    <div id="help-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold" id="modal-title">需要帮助？</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 mb-4" id="modal-content">如果您无法访问此网站，请尝试以下解决方案：</p>
+            <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                <li id="modal-point1">检查您的域名拼写是否有误</li>
+                <li id="modal-point2">联系网站管理员并提供您的IP地址</li>
+                <!--li id="modal-point3">检查您的网络连接是否正常</li>
+                <li id="modal-point4">尝试使用其他网络环境访问</li-->
+            </ul>
+            <p class="text-gray-600" id="modal-contact">如需进一步帮助，请联系：admin@valerianblog.link</p>
+        </div>
+    </div>
+
+    <script>
+        // 语言资源定义
+        const translations = {
+            "zh-CN": {
+                "title": "网站不存在",
+                "ip-label": "您的IP地址",
+                "time-label": "拦截时间",
+                "hint-text": "如果您认为这是误判，请联系网站管理员并提供您的IP地址和拦截时间。",
+                "retry-button": "尝试重新加载",
+                "help-button": "获取帮助",
+                "footer-text": "由 Revelation 提供网络安全防护",
+                "modal-title": "需要帮助？",
+                "modal-content": "如果您无法访问此网站，请尝试以下解决方案：",
+                "modal-point1": "检查您的域名拼写是否有误",
+                "modal-point2": "联系网站管理员并提供您的IP地址",
+                "modal-contact": "如需进一步帮助，请联系：admin@valerianblog.link"
+            },
+            "zh-Hant": {
+                "title": "網站不存在",
+                "ip-label": "IP位址",
+                "time-label": "攔截時間",
+                "hint-text": "若您認為此為誤判，請聯繫網站管理員並提供您的IP位址與攔截時間。",
+                "retry-button": "嘗試重新載入",
+                "help-button": "取得協助",
+                "footer-text": "由 Revelation 提供網路安全防護",
+                "modal-title": "需要協助？",
+                "modal-content": "若您無法存取此網站，請嘗試以下解決方案：",
+                "modal-point1": "檢查您的網域名稱拼寫是否有誤",
+                "modal-point2": "聯繫網站管理員並提供您的IP位址",
+                "modal-contact": "如須進一步協助，請聯繫：admin@valerianblog.link"
+            },
+            "en": {
+                "title": "Website Does Not Exist",
+                "ip-label": "IP Address",
+                "time-label": "Block Time",
+                "hint-text": "If you believe this is a false positive, please contact the website administrator and provide your IP address and block time.",
+                "retry-button": "Try Reloading",
+                "help-button": "Get Help",
+                "footer-text": "Network Security Protection Provided by Revelation",
+                "modal-title": "Need Help?",
+                "modal-content": "If you cannot access this website, please try the following solutions:",
+                "modal-point1": "Check if there is a typo in your domain name",
+                "modal-point2": "Contact the website administrator and provide your IP address",
+                "modal-contact": "For further assistance, please contact: admin@valerianblog.link"
+            },
+            "ja": {
+                "title": "ウェブサイトが存在しません",
+                "ip-label": "IPアドレス",
+                "time-label": "ブロック時間",
+                "hint-text": "誤判定だと思われる場合は、ウェブサイト管理者に連絡し、自身のIPアドレスとブロック時間を提供してください。",
+                "retry-button": "再読み込みを試す",
+                "help-button": "ヘルプを取得",
+                "footer-text": "Revelation によるネットワークセキュリティ保護を提供",
+                "modal-title": "ヘルプが必要ですか？",
+                "modal-content": "このウェブサイトにアクセスできない場合は、以下の解決策を試してください：",
+                "modal-point1": "ドメイン名のスペルに誤りがないか確認する",
+                "modal-point2": "ウェブサイト管理者に連絡し、自身のIPアドレスを提供する",
+                "modal-contact": "詳しいヘルプが必要な場合は、以下に連絡してください：admin@valerianblog.link"
+            },
+            "ko": {
+                "title": "웹사이트가 존재하지 않습니다",
+                "ip-label": "IP 주소",
+                "time-label": "차단 시간",
+                "hint-text": "오판이라고 생각하시는 경우 웹사이트 관리자에게 연락하여 IP 주소와 차단 시간을 제공해 주세요.",
+                "retry-button": "다시 로드 시도",
+                "help-button": "도움말 보기",
+                "footer-text": "Revelation 에서 제공하는 네트워크 보안防护",
+                "modal-title": "도움이 필요하세요?",
+                "modal-content": "이 웹사이트에 접속할 수 없는 경우 다음 해결 방법을 시도해 보세요:",
+                "modal-point1": "도메인 이름 철자가 올바른지 확인하세요",
+                "modal-point2": "웹사이트 관리자에게 연락하여 IP 주소를 제공하세요",
+                "modal-contact": "추가 도움이 필요한 경우 연락하세요: admin@valerianblog.link"
+            },
+            "nl": {
+                "title": "Website Bestaat Niet",
+                "ip-label": "IP-adres",
+                "time-label": "Blokkeertijd",
+                "hint-text": "Als u denkt dat dit een valse positief is, neem dan contact op met de websitebeheerder en geef uw IP-adres en blokkeertijd op.",
+                "retry-button": "Probeer Opnieuw Te Laden",
+                "help-button": "Krijg Hulp",
+                "footer-text": "Netwerkbeveiliging Verstrekt door Revelation",
+                "modal-title": "Hulp Nodig?",
+                "modal-content": "Als u niet bij deze website kunt gaan, probeer dan de volgende oplossingen:",
+                "modal-point1": "Controleer of er een typefout in uw domeinnaam staat",
+                "modal-point2": "Neem contact op met de websitebeheerder en geef uw IP-adres op",
+                "modal-contact": "Voor verdere hulp, neem contact op met: admin@valerianblog.link"
+            },
+            "pt": {
+                "title": "O Site Não Existe",
+                "ip-label": "Endereço IP",
+                "time-label": "Hora do Bloqueio",
+                "hint-text": "Se você acha que esta é uma falsa detecção, entre em contato com o administrador do site e forneça seu endereço IP e hora do bloqueio.",
+                "retry-button": "Tentar Recarregar",
+                "help-button": "Obter Ajuda",
+                "footer-text": "Proteção de Segurança de Rede Fornecida pela Revelation",
+                "modal-title": "Precisa de Ajuda?",
+                "modal-content": "Se você não puder acessar este site, tente as seguintes soluções:",
+                "modal-point1": "Verifique se há um erro de digitação no seu nome de domínio",
+                "modal-point2": "Entre em contato com o administrador do site e forneça seu endereço IP",
+                "modal-contact": "Para ajuda adicional, entre em contato com: admin@valerianblog.link"
+            },
+            "uk": {
+                "title": "Веб-сайт не існує",
+                "ip-label": "IP-адреса",
+                "time-label": "Час блокування",
+                "hint-text": "Якщо ви вважаєте, що це помилкове виявлення, зв'яжіться з адміністратором веб-сайту та надайте свою IP-адресу та час блокування.",
+                "retry-button": "Спробувати перезавантажити",
+                "help-button": "Отримати допомогу",
+                "footer-text": "Захист мережної безпеки, наданий Revelation",
+                "modal-title": " Потрібна допомога?",
+                "modal-content": "Якщо ви не можете отримати доступ до цього веб-сайту, спробуйте такі рішення:",
+                "modal-point1": "Перевірте, чи немає помилки у написанні назви домену",
+                "modal-point2": "Зв'яжіться з адміністратором веб-сайту та надайте свою IP-адресу",
+                "modal-contact": "Для додаткової допомоги зв'яжіться з: admin@valerianblog.link"
+            },
+            "hi": {
+                "title": "वेबसाइट मौजूद नहीं है",
+                "ip-label": "IP पता",
+                "time-label": "अवरोध समय",
+                "hint-text": "यदि आप यह मानते हैं कि यह एक गलत सकारात्मक है, तो कृपया वेबसाइट प्रशासक से संपर्क करें और अपना IP पता और अवरोध समय प्रदान करें।",
+                "retry-button": "पुनः लोड करने का प्रयास करें",
+                "help-button": "मदद प्राप्त करें",
+                "footer-text": "रिवेलेशन द्वारा प्रदान की जाने वाली नेटवर्क सुरक्षा सुरक्षा",
+                "modal-title": "मदद चाहिए?",
+                "modal-content": "यदि आप इस वेबसाइट तक पहुंच नहीं सकते हैं, तो कृपया निम्नलिखित समाधानों का प्रयास करें:",
+                "modal-point1": "जांचें कि आपके डोमेन नाम में कोई टाइपिंग त्रुटि नहीं है",
+                "modal-point2": "वेबसाइट प्रशासक से संपर्क करें और अपना IP पता प्रदान करें",
+                "modal-contact": "और अधिक मदद के लिए, कृपया संपर्क करें: admin@valerianblog.link"
+            },
+            "th": {
+                "title": "เว็บไซต์ไม่มีอยู่จริง",
+                "ip-label": "ที่อยู่ IP",
+                "time-label": "เวลาแบล็อก",
+                "hint-text": "หากคุณคิดว่านี่เป็นการตรวจจับผิดพลาด โปรดติดต่อผู้ดูแลเว็บไซต์และให้ที่อยู่ IP และเวลาแบล็อกของคุณ",
+                "retry-button": "ลองโหลดซ้ำ",
+                "help-button": "ขอความช่วยเหลือ",
+                "footer-text": "การป้องกันความปลอดภัยเครือข่ายโดย Revelation",
+                "modal-title": "ต้องการความช่วยเหลือหรือไม่?",
+                "modal-content": "หากคุณไม่สามารถเข้าถึงเว็บไซต์นี้ได้ โปรดลองใช้โซลูชันต่อไปนี้:",
+                "modal-point1": "ตรวจสอบว่ามีการพิมพ์ชื่อโดเมนผิดหรือไม่",
+                "modal-point2": "ติดต่อผู้ดูแลเว็บไซต์และให้ที่อยู่ IP ของคุณ",
+                "modal-contact": "สำหรับการช่วยเหลือเพิ่มเติม โปรดติดต่อ: admin@valerianblog.link"
+            },
+            "tl": {
+                "title": "Ang Website ay Hindi Umiiral",
+                "ip-label": "IP Address",
+                "time-label": "Oras ng Blokeo",
+                "hint-text": "Kung sa palagay mo ito ay maling positibo, mangyaring makipag-ugnayan sa admin ng website at ibigay ang iyong IP address at oras ng blokeo.",
+                "retry-button": "Subukang Mag-reload Muli",
+                "help-button": "Kumuha ng Tulong",
+                "footer-text": "Network Security Protection na Inaalok ng Revelation",
+                "modal-title": "Kailangan mo ba ng Tulong?",
+                "modal-content": "Kung hindi mo ma-access ang website na ito, subukang gamitin ang mga sumusunod na solusyon:",
+                "modal-point1": "Suriin kung may mali sa pag-spell ng iyong domain name",
+                "modal-point2": "Mangyaring makipag-ugnayan sa admin ng website at ibigay ang iyong IP address",
+                "modal-contact": "Para sa karagdagang tulong, mangyaring makipag-ugnayan sa: admin@valerianblog.link"
+            },
+            "vi": {
+                "title": "Trang Web Không Tồn Tại",
+                "ip-label": "Địa Chỉ IP",
+                "time-label": "Thời Gian Chặn",
+                "hint-text": "Nếu bạn cho rằng đây là phán đoán sai, vui lòng liên hệ với quản trị viên website và cung cấp địa chỉ IP sowie thời gian bị chặn của bạn.",
+                "retry-button": "Thử Tải Lại",
+                "help-button": "Nhận Trợ Giúp",
+                "footer-text": "Bảo Vệ An Toàn Mạng Cung Cấp Bởi Revelation",
+                "modal-title": "Cần Trợ Giúp?",
+                "modal-content": "Nếu bạn không thể truy cập trang web này, vui lòng thử các giải pháp sau:",
+                "modal-point1": "Kiểm tra xem có lỗi đánh máy trong tên miền của bạn không",
+                "modal-point2": "Liên hệ với quản trị viên trang web và cung cấp địa chỉ IP của bạn",
+                "modal-contact": "Để nhận trợ giúp thêm, vui lòng liên hệ với: admin@valerianblog.link"
+            },
+            "no": {
+                "title": "Nettstedet Eksisterer Ikke",
+                "ip-label": "IP-adresse",
+                "time-label": "Blokkertid",
+                "hint-text": "Hvis du mener dette er en falsk positiv, vennligst kontakt nettstedets administrator og gi din IP-adresse og blokkertid.",
+                "retry-button": "Prøv Å Laste Om",
+                "help-button": "Få Hjelp",
+                "footer-text": "Nettverksikkerhet Levert Av Revelation",
+                "modal-title": "Trenger Hjelp?",
+                "modal-content": "Hvis du ikke kan få tilgang til dette nettstedet, vennligst prøv følgende løsninger:",
+                "modal-point1": "Sjekk om det er en skrivefeil i domenenavnet ditt",
+                "modal-point2": "Kontakt nettstedets administrator og gi din IP-adresse",
+                "modal-contact": "For ytterligere hjelp, vennligst kontakt: admin@valerianblog.link"
+            },
+            "tr": {
+                "title": "Web Sitesi Mevcut Değil",
+                "ip-label": "IP Adresi",
+                "time-label": "Engelleme Zamanı",
+                "hint-text": "Bu bir yanlış pozitif olduğunu düşünüyorsanız, lütfen web sitesi yöneticisi ile iletişime geçin ve IP adresinizi ve engelleme zamanınızı sağlayın.",
+                "retry-button": "Yeniden Yükleme Deneyin",
+                "help-button": "Yardım Al",
+                "footer-text": "Revelation Tarafından Sağlanan Ağ Güvenliği Koruması",
+                "modal-title": "Yardım İster Misiniz?",
+                "modal-content": "Bu web sitesine erişemiyorsanız, lütfen aşağıdaki çözümleri deneyin:",
+                "modal-point1": "Alan adınızda yazım hatası olup olmadığını kontrol edin",
+                "modal-point2": "Web sitesi yöneticisi ile iletişime geçin ve IP adresinizi sağlayın",
+                "modal-contact": "Daha fazla yardım için lütfen iletişime geçin: admin@valerianblog.link"
+            },
+            "ms": {
+                "title": "Laman Web Tidak Wujud",
+                "ip-label": "Alamat IP",
+                "time-label": "Masa Blok",
+                "hint-text": "Jika anda menganggap ini adalah positif palsu, sila hubungi pentadbir laman web dan berikan alamat IP dan masa blok anda.",
+                "retry-button": "Cuba Muat Semula",
+                "help-button": "Dapatkan Bantuan",
+                "footer-text": "Perlindungan Keselamatan Rangkaian Dibekalkan oleh Revelation",
+                "modal-title": "Perlu Bantuan?",
+                "modal-content": "Jika anda tidak dapat mengakses laman web ini, sila cuba penyelesaian berikut:",
+                "modal-point1": "Semak sama ada terdapat kesilapan ejaan pada nama domain anda",
+                "modal-point2": "Hubungi pentadbir laman web dan berikan alamat IP anda",
+                "modal-contact": "Untuk bantuan tambahan, sila hubungi: admin@valerianblog.link"
+            },
+            "fr": {
+                "title": "Le Site Web N'Existe Pas",
+                "ip-label": "Adresse IP",
+                "time-label": "Heure du Blocage",
+                "hint-text": "Si vous pensez qu'il s'agit d'un faux positif, veuillez contacter l'administrateur du site web et fournir votre adresse IP et l'heure du blocage.",
+                "retry-button": "Essayer de Recharger",
+                "help-button": "Obtenir de l'Aide",
+                "footer-text": "Protection de Sécurité Réseau Fournie par Revelation",
+                "modal-title": "Besoin d'Aide?",
+                "modal-content": "Si vous ne pouvez pas accéder à ce site web, veuillez essayer les solutions suivantes:",
+                "modal-point1": "Vérifiez s'il y a une faute de frappe dans votre nom de domaine",
+                "modal-point2": "Contactez l'administrateur du site web et fournissez votre adresse IP",
+                "modal-contact": "Pour plus d'aide, veuillez contacter: admin@valerianblog.link"
+            },
+            "de": {
+                "title": "Webseite Existiert Nicht",
+                "ip-label": "IP-Adresse",
+                "time-label": "Blockierzeit",
+                "hint-text": "Wenn Sie glauben, dass dies ein falsch positives Ergebnis ist, kontaktieren Sie bitte den Website-Administrator und teilen Sie ihm Ihre IP-Adresse und Blockierzeit mit.",
+                "retry-button": "Versuchen Sie zu Neu Laden",
+                "help-button": "Hilfe Erhalten",
+                "footer-text": "Netzwerksicherheit bereitgestellt von Revelation",
+                "modal-title": "Brauchen Sie Hilfe?",
+                "modal-content": "Wenn Sie auf diese Website nicht zugreifen können, versuchen Sie bitte die folgenden Lösungen:",
+                "modal-point1": "Überprüfen Sie, ob es einen Tippfehler in Ihrem Domainnamen gibt",
+                "modal-point2": "Kontaktieren Sie den Website-Administrator und teilen Sie ihm Ihre IP-Adresse mit",
+                "modal-contact": "Für weitere Hilfe kontaktieren Sie bitte: admin@valerianblog.link"
+            },
+            "es": {
+                "title": "El Sitio Web No Existe",
+                "ip-label": "Dirección IP",
+                "time-label": "Hora del Bloqueo",
+                "hint-text": "Si cree que se trata de un falso positivo, comuníquese con el administrador del sitio web y proporcione su dirección IP y hora del bloqueo.",
+                "retry-button": "Intentar Recargar",
+                "help-button": "Obtener Ayuda",
+                "footer-text": "Protección de Seguridad de Red Proporcionada por Revelation",
+                "modal-title": "¿Necesita Ayuda?",
+                "modal-content": "Si no puede acceder a este sitio web, intente las siguientes soluciones:",
+                "modal-point1": "Verifique si hay un error de escritura en su nombre de dominio",
+                "modal-point2": "Comuníquese con el administrador del sitio web y proporcione su dirección IP",
+                "modal-contact": "Para obtener más ayuda, comuníquese con: admin@valerianblog.link"
+            },
+            "bg": {
+                "title": "Уебсайта Не Съществува",
+                "ip-label": "IP Адрес",
+                "time-label": "Време на Блокиране",
+                "hint-text": "Ако смятате, че това е грешно положително съобщение, моля, свържете се с администратора на уебсайта и предоставете вашия IP адрес и време на блокиране.",
+                "retry-button": "Опитайте да Нaloadнете Отново",
+                "help-button": "Получете Помощ",
+                "footer-text": "Защита на Мрежовата Безопасност, Предоставена от Revelation",
+                "modal-title": "Имате Потреба от Помощ?",
+                "modal-content": "Ако не можете да получите достъп до този уебсайт, опитайте следните решения:",
+                "modal-point1": "Проверете дали има грешка в написането на домейна ви",
+                "modal-point2": "Свържете се с администратора на уебсайта и предоставете вашия IP адрес",
+                "modal-contact": "За допълнителна помощ, моля, свържете се с: admin@valerianblog.link"
+            },
+            "ga": {
+                "title": "Ní Existeann an Láithreán Gréasáin",
+                "ip-label": "Seoladh IP",
+                "time-label": "Am Blocála",
+                "hint-text": "Más creideann tú go bhfuil sé seo i gceist le dearbhú bréagach, téigh i dteagmháil leis an riarthóir an láithreáin ghréasáin agus tabhair do sheoladh IP agus d'am blocála.",
+                "retry-button": "Bain Triail as Atosú",
+                "help-button": "Faigh Cabhair",
+                "footer-text": "Cosaint Slándála Líonra ar Fáil ó Revelation",
+                "modal-title": "An bhfuil Cabhair Uait?",
+                "modal-content": "Mura féidir leat rochtain a fháil ar an láithreán gréasáin seo, bain triail as na réitigh seo a leanas:",
+                "modal-point1": "Seiceáil an bhfuil earráid litrithe i do ainm fearainn",
+                "modal-point2": "Téigh i dteagmháil leis an riarthóir an láithreáin ghréasáin agus tabhair do sheoladh IP",
+                "modal-contact": "Le haghaidh cabhair bhreise, téigh i dteagmháil le: admin@valerianblog.link"
+            },
+            "lt": {
+                "title": "Svetainė Neegzistuoja",
+                "ip-label": "IP Adresas",
+                "time-label": "Blokavimo Laikas",
+                "hint-text": "Jei manote, kad tai klaidingas teigiamas rezultatas, susisiekite su svetainės administratoriumi ir pateikite savo IP adresą bei blokavimo laiką.",
+                "retry-button": "Pabandykite Perkrauti",
+                "help-button": "Gauti Pagalbą",
+                "footer-text": "Tinklo Saugumo Apsauga Teikiama Revelation",
+                "modal-title": "Reikia Pagalbos?",
+                "modal-content": "Jei negalite pasiekti šios svetainės, pabandykite šiuos sprendimus:",
+                "modal-point1": "Patikrinkite, ar jūsų domeno pavadinime nėra rašybos klaidų",
+                "modal-point2": "Susisiekite su svetainės administratoriumi ir pateikite savo IP adresą",
+                "modal-contact": "Norėdami gauti papildomą pagalbą, susisiekite su: admin@valerianblog.link"
+            },
+            "in": {
+                "title": "Situs Web Tidak Ada",
+                "ip-label": "Alamat IP",
+                "time-label": "Waktu Blokir",
+                "hint-text": "Jika Anda merasa ini adalah positif palsu, silakan hubungi administrator situs web dan berikan alamat IP serta waktu blokir Anda.",
+                "retry-button": "Coba Muat Ulang",
+                "help-button": "Dapatkan Bantuan",
+                "footer-text": "Perlindungan Keamanan Jaringan Disediakan oleh Revelation",
+                "modal-title": "Butuh Bantuan?",
+                "modal-content": "Jika Anda tidak dapat mengakses situs web ini, silakan coba solusi berikut:",
+                "modal-point1": "Periksa apakah ada kesalahan penulisan nama domain Anda",
+                "modal-point2": "Hubungi administrator situs web dan berikan alamat IP Anda",
+                "modal-contact": "Untuk bantuan lebih lanjut, silakan hubungi: admin@valerianblog.link"
+            }
+        };
+
+        // 国家代码到语言的映射
+        const countryToLanguage = {
+            'CN': 'zh-CN',
+            'TW': 'zh-Hant',
+            'HK': 'zh-Hant',
+            'MO': 'zh-Hant',
+            'US': 'en',
+            'JP': 'ja',
+            'KR': 'ko',
+            'NL': 'nl',    // 荷兰
+            'PT': 'pt',    // 葡萄牙
+            'UA': 'uk',    // 乌克兰
+            'IN': 'hi',    // 印度（印地语，印度官方语言之一）
+            'TH': 'th',    // 泰国
+            'PH': 'tl',    // 菲律宾（他加禄语）
+            'VN': 'vi',    // 越南
+            'NO': 'no',    // 挪威
+            'TR': 'tr',    // 土耳其
+            'MY': 'ms',    // 马来西亚
+            'FR': 'fr',    // 法国
+            'DE': 'de',    // 德国
+            'ES': 'es',    // 西班牙
+            "MX": 'es',    // 墨西哥
+            'BG': 'bg',    // 保加利亚
+            'IE': 'ga',    // 爱尔兰
+            'LT': 'lt',    // 立陶宛
+            'ID': 'in',    // 印度尼西亚（补充印度尼西亚语映射，因“印度语”易混淆，印度尼西亚为东南亚主要使用印尼语的国家）
+            'default': 'en' // 默认语言
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const helpButton = document.getElementById('help-btn');
+            const helpModal = document.getElementById('help-modal');
+            const closeModal = document.getElementById('close-modal');
+            const languageToggle = document.getElementById('language-toggle');
+            const languageDropdown = document.getElementById('language-dropdown');
+            const languageOptions = document.querySelectorAll('.language-option');
+            
+            // 帮助模态框功能
+            helpButton.addEventListener('click', function () {
+                helpModal.classList.remove('hidden');
+            });
+
+            closeModal.addEventListener('click', function () {
+                helpModal.classList.add('hidden');
+            });
+
+            // 点击模态框外部关闭
+            helpModal.addEventListener('click', function (e) {
+                if (e.target === helpModal) {
+                    helpModal.classList.add('hidden');
+                }
+            });
+
+            // 语言选择器切换
+            languageToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('open');
+            });
+
+            // 语言选项点击事件
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    if (lang === 'auto') {
+                        detectLanguageByIP();
+                    } else {
+                        changeLanguage(lang);
+                    }
+                    
+                    // 关闭下拉菜单
+                    languageDropdown.classList.remove('open');
+                });
+            });
+
+            // 点击页面其他区域关闭语言下拉菜单
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.language-selector')) {
+                    languageDropdown.classList.remove('open');
+                }
+            });
+
+            // 获取用户IP地址并检测语言
+            getIP();
+        });
+
+        // 获取IP并检测语言
+        function getIP() {
+            fetch('https://ipapi.co/json/')
+            .then(response => {
+                if(!response.ok) throw new Error('API请求失败');
+                return response.json();
+            }).then(data => {
+                document.getElementById('user-ip').textContent = data.ip;
+                let timeZone = data.timezone || 'Asia/Shanghai';
+                let utcOffset = data.utc_offset || '+0800';
+                displayTime(timeZone, utcOffset);
+                
+                // 根据国家代码检测语言
+                detectLanguageByCountryCode(data.country_code);
+            }).catch(error => {
+                // 备用方案
+                fetch('https://ipinfo.io/json')
+                    .then(response => {
+                        if (!response.ok) throw new Error('备用API请求失败');
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById('user-ip').textContent = data.ip;
+                        let timeZone = data.timezone || 'Asia/Shanghai';
+                        displayTime(timeZone);
+                        
+                        // 根据国家代码检测语言
+                        detectLanguageByCountryCode(data.country);
+                    })
+                    .catch(error => {
+                        setDefaultTime();
+                        // 使用默认语言
+                        changeLanguage('zh-CN');
+                    });
+            });
+        }
+
+        // 根据国家代码检测语言
+        function detectLanguageByCountryCode(countryCode) {
+            const language = countryToLanguage[countryCode] || countryToLanguage['default'];
+            changeLanguage(language);
+        }
+
+        // 通过IP检测语言（备用）
+        function detectLanguageByIP() {
+            fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                detectLanguageByCountryCode(data.country_code);
+            })
+            .catch(error => {
+                // 如果IP检测失败，使用浏览器语言
+                const browserLanguage = navigator.language || navigator.userLanguage;
+                const mainLanguage = browserLanguage.split('-')[0];
+                changeLanguage(mainLanguage);
+            });
+        }
+
+        // 切换语言
+        function changeLanguage(lang) {
+            // 确保语言在可用范围内，否则使用英语
+            if (!translations[lang]) {
+                lang = 'en';
+            }
+            
+            // 更新所有文本元素
+            for (const [key, value] of Object.entries(translations[lang])) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+            
+            // 更新HTML语言属性
+            document.documentElement.lang = lang;
+        }
+
+        function displayTime(timeZone, utcOffset) {
+            let options = {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: timeZone,
+                utcOffset: utcOffset,
+                hour12: false
+            };
+
+            try {
+                let formatter = new Intl.DateTimeFormat('zh-CN', options);
+                let timeString = formatter.format(new Date());
+                if (utcOffset) {
+                    document.getElementById('block-time').textContent = `${timeString} UTC${utcOffset}`;
+                } else {
+                    // 如果没有提供偏移量，只显示时区名称
+                    document.getElementById('block-time').textContent = `${timeString} (${timeZone})`;
+                }
+            } catch (e) {
+                // 如果时区无效，使用默认时间
+                setDefaultTime();
+            }
+        }
+
+        // 设置默认时间
+        function setDefaultTime() {
+            let options = {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Asia/Shanghai',
+                hour12: false
+            };
+            let formatter = new Intl.DateTimeFormat('zh-CN', options);
+            document.getElementById('block-time').textContent = `${formatter.format(new Date())} UTC+0800`;
+        }
+    </script>
+</body>
+
+</html>
