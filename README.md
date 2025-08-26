@@ -1,13 +1,16 @@
+简体中文 | [English](README_en.md)
 # 🛡️Revelation's WAF Block Page
 一种多语言不同类型的网络安全防护墙拦截单页。
+![示例](https://github.com/user-attachments/assets/5bee7eb5-2566-418e-b0aa-2d83271ba25d)
 
 # 🗂️文件类别
 |文件名称|拦截类型|
 |:--:|:--:|
 |403 Forbidden.html|通用拦截页面，用于403请求|
-|IP Blacklist.html|IP黑名单|
-|Non-existent Website.html|网站不存在|
 |Regional Access Restriction.html|区域访问限制|
+|Non-existent Website.html|网站不存在|
+|IP Blacklist.html|IP黑名单|
+文件顺序和上方截图所展示的一致。
 
 # 📋页面主要功能
 ## 🛜自动获取IP
@@ -19,14 +22,14 @@
 ## ⏲拦截时间显示
 通过获取到的IP，自动判断访问者所处地区的时区。一般会通过UTC+时间偏移量来显示用户当地时间；若 `https://ipapi.co/json/` 接口因用户访问过多而被限制，则会更改为用户当地时间+时区名称。当两个接口全部失效时，则会显示默认的UTC+0800（Asia/Shanghai）时间。
 
-## 其他
+## 🎇其他
 包含刷新页面、帮助弹窗等。
 
-# 说明
+# 🗣说明
 使用时，将单页直接粘贴在对应设置区域即可。以1Panel为例：
 ![1Panel专业版](https://github.com/user-attachments/assets/eaabe285-a868-4c68-b1a7-36d1f1f81079)
 
-## 内容修改
+## 📩内容修改
 当需要对拦截页面进行修改时，请注意：
 1. html正文中的语言则为初始访问页面时的语言。如果你希望获取IP前页面显示的是英文，则将其修改成英文即可；
 2. 如果想新增区块和语言，则需要为该区块定义一个新的id，并将该id添加到语言资源包中，删除同理；
